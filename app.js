@@ -1,10 +1,23 @@
+numSquares = 22;
+color = "black";
 $(document).ready(function() {
-  var numSquares = prompt('Enter grid number (default: 16)', '16')
   drawGrid(+numSquares);
-  $('.square').hover(function () {
-    $(this).css({'background-color' : randomColor()});
-  });
 });
+
+var setGridSize = function() {
+  numSquares = prompt("Enter new grid size (default is 16x16)", "16");
+  $('.container').empty();
+  drawGrid(+numSquares);
+}
+
+var setColor = function(option) {
+  if (option === 'random') {
+    color = randomColor();
+  }
+  else {
+    color = option;
+  }
+}
 
 var calcSize = function(n) {
   var width = ($('.container').width() / parseFloat(n));
@@ -25,6 +38,9 @@ var generateSquares = function(n) {
 var drawGrid = function(n) {
   $('.container').append(generateSquares(n));
   $('.square').css(calcSize(n));
+  $('.square').hover(function () {
+    $(this).css({'background-color' : color});
+  });
 }
 
 var randomColor = function() {
