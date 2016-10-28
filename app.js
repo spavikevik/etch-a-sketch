@@ -1,7 +1,10 @@
-numSquares = 22;
+numSquares = 16;
 color = "black";
 $(document).ready(function() {
   drawGrid(+numSquares);
+  $('button').on('click', function(event) {
+    event.preventDefault();
+  })
 });
 
 var setGridSize = function() {
