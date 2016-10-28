@@ -5,6 +5,7 @@
 .container {
   display: block;
   margin: auto;
+  margin-bottom: 5px;
   width: 500px;
   height: 500px;
   border: 0.1px solid grey;

@@ -8,17 +8,17 @@ $(document).ready(function() {
 });
 
 var setGridSize = function() {
-  numSquares = prompt("Enter new grid size (default is 16x16)", "16");
+  numSquares = prompt("Enter new grid size", numSquares);
   $('.container').empty();
   drawGrid(+numSquares);
 }
 
 var setColor = function(option) {
   if (option === 'random') {
-    color = randomColor();
+    return randomColor();
   }
   else {
-    color = option;
+    return option;
   }
 }
 
@@ -42,7 +42,7 @@ var drawGrid = function(n) {
   $('.container').append(generateSquares(n));
   $('.square').css(calcSize(n));
   $('.square').hover(function () {
-    $(this).css({'background-color' : color});
+    $(this).css({'background-color' : setColor(color)});
   });
 }
 
